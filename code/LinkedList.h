@@ -1,24 +1,21 @@
 // LinkedList.h
-
 // tom bailey   0740  5 oct 2010
+// **Edited by Chandler Haukap on 9/18/2017
+
 // Declaration of the List class.
 
 // A List stores and manages a sequence of doubles.
-
 // This version uses a pointer to the first Node of a
 //   singly linked list of Nodes.
 
-
 #ifndef _LINKED_LIST_H_
+
 #define _LINKED_LIST_H_
 
 #include <iostream>
 using std::ostream;
-
-#include "Node.cpp"
-
+#include "Node.h"
 #define ulong unsigned long
-
 
 class List
 {
@@ -30,8 +27,7 @@ public:
 	List();
 
 	// Copy constructor
-	// post: this List now stores a copy of the sequence stored
-	//         in other
+	// post: this List now stores a copy of the sequence stored in other
 	List(const List & other);
 
 	// Destructor
@@ -39,50 +35,44 @@ public:
 	~List();
 
 	// Assignment operator
-	// post: this List now stores a copy of the sequence stored
-	//         in other
+	// post: this List now stores a copy of the sequence stored in other
 	const List & operator=(const List & other);
-
 
 	//*** Accessors ***
 
-	// post: true has been returned just if this List is
-	//         empty.
+	// post: true has been returned just if this List is empty.
 	bool empty() const;
 
-	// post: the doubles in this List have been written to
-	//         outfile.
+	// post: the doubles in this List have been written to outfile.
 	void print(ostream & outfile) const;
-
 
 	//*** Mutators ***
 
-	// post: x has been added as the first double in this
-	//         List.
+	// post: x has been added as the first double in this List.
 	void insertAsFirst(double x);
 
 	// pre:  this List is not empty.
-	// post: the first double in this List has been removed
-	//         from this List and has been returned.
+	// post: the first double in this List has been removed from this List and has been returned.
 	double removeFirst();
+	
+	// Returns the number of nodes in the linked list.
+	double size(); // Added by Chandler Haukap
+
+	//adds node to the end of the list
+	void insertAsLast(double x); // Added by Chandler Haukap
 
 private:
 	//*** Inaccessible standard functions ***
 
-
 	//*** Helper functions ***
+
 	// process part of the linked structure
-
-	// post: a pointer to a copy of the linked structure
-	//         targeted by ptr has been returned.
+	// post: a pointer to a copy of the linked structure targeted by ptr has been returned.
 	static Node * clone(Node * ptr);
-
 
 private:
 	Node * first_;
-
 };
-
 
 //*** Auxiliary functions ***
 
