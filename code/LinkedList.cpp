@@ -144,6 +144,8 @@ double List::size()  //Created by Chandler Haukap
 	return counter;
 }
 
+//Inserts new node as the last element of the list.
+void List::insertAsLast(double x) //Created by Chandler Haukap
 {
 	if (first_ == NULL) //if the list is empty
 	{
